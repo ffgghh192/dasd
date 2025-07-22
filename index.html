@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마술 해법 검색기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    p {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪄 마술 해법 영상 검색</h1>
+  <input type="text" id="magicType" placeholder="예: 카드 마술, 동전 마술">
+  <button onclick="searchMagic()">검색</button>
+
+  <p>유튜브 검색 결과는 새 창에서 열립니다.</p>
+
+  <script>
+    function searchMagic() {
+      const input = document.getElementById("magicType").value;
+      if (input.trim() === "") {
+        alert("마술 유형을 입력해주세요!");
+        return;
+      }
+      const query = encodeURIComponent(input + " 마술 해법");
+      const url = `https://www.youtube.com/results?search_query=${query}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
